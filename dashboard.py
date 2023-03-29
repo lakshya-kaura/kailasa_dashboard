@@ -1,10 +1,7 @@
-import undetected_chromedriver as uc
 import time
 import pandas as pd
 import numpy as np
-import time
 import datetime
-from datetime import date
 import warnings
 import streamlit as st # web development
 import numpy as np # np mean, np random 
@@ -13,9 +10,7 @@ import time # to simulate a real time data, time loop
 import plotly.express as px # interactive charts 
 from PIL import Image
 from login.login import login, login_all, login_window
-from csv import DictWriter
 import plotly.graph_objects as go
-import plotly.express as px
 
 import warnings
 warnings.filterwarnings('ignore')
