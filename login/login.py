@@ -30,7 +30,7 @@ def login(user_id, method='standard'):
     """
     
     #give path to credentials file here
-    credentials_file = pd.read_csv('login\\credentials.csv')
+    credentials_file = pd.read_csv('login/credentials.csv')
 
     method = credentials_file[credentials_file['user_id'] == user_id]['method'].iloc[0]
 
@@ -57,7 +57,7 @@ def login(user_id, method='standard'):
             options = Options()
             options.add_argument('--headless')
             options.add_argument('--disable-gpu')
-            driver = webdriver.Chrome(executable_path='login\\chromedriver.exe',options=options)
+            driver = webdriver.Chrome(executable_path='login/chromedriver.exe',options=options)
             #driver = webdriver.Chrome(ChromeDriverManager().install())
             driver.get(kite.login_url())
             sleep(2)
@@ -87,7 +87,7 @@ def login(user_id, method='standard'):
 
             #save the config file
             try:
-                credentials_file.to_csv('login\\credentials.csv',index=False)
+                credentials_file.to_csv('login/credentials.csv',index=False)
                 print("Saved credentials csv for",user_id)
             except:
                 print(f"Error while saving {user_id} access token to csv. Maybe the credentials csv file is open.")
@@ -112,7 +112,7 @@ def login(user_id, method='standard'):
     return kite,kite_login_message,login_success_counter
 
 def login_all():
-    credentials = pd.read_csv('login\\credentials.csv')
+    credentials = pd.read_csv('login/credentials.csv')
     #login process has already been done when initialising Raptor, but this process check login status once again
     #iterate over the accounts in the accounts dictionary and login each one of them, in case not already done
     #in case unable to login, print an error message and also send to the group
@@ -133,7 +133,7 @@ def login_window(user_id):
 
     #give path to credentials file here
     try:
-        credentials_file = pd.read_csv('login\\credentials.csv')
+        credentials_file = pd.read_csv('login/credentials.csv')
 
         account_username = credentials_file[credentials_file['user_id'] == user_id]['user_id'].iloc[0]
         account_password = credentials_file[credentials_file['user_id'] == user_id]['password'].iloc[0]
@@ -144,7 +144,7 @@ def login_window(user_id):
         options.add_argument('--disable-gpu')
         options = webdriver.ChromeOptions()
         options.add_experimental_option("detach", True)
-        driver = webdriver.Chrome(executable_path='login\\chromedriver.exe',options=options)
+        driver = webdriver.Chrome(executable_path='login/chromedriver.exe',options=options)
         driver.get('https://kite.zerodha.com/')
         driver.maximize_window()
         sleep(2)
@@ -166,7 +166,7 @@ if __name__ == '__main__':
 
     ## LOGIN ##
 
-    credentials = pd.read_csv("login\\credentials.csv")
+    credentials = pd.read_csv("login/credentials.csv")
     accounts = credentials['user_id'].to_list()
 
     for user_id in accounts:
