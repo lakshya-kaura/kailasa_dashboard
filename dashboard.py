@@ -332,7 +332,6 @@ while datetime.datetime.now().time() < datetime.time(15,31):
 
 else:
     df_pnl_eod = pd.read_csv('df_pnl_eod.csv')
-    #credentials = pd.read_csv('login\\credentials.csv')
 
     if df_pnl_eod['date'].iloc[-1] != datetime.datetime.now().date().strftime('%Y-%m-%d'):
  
@@ -363,7 +362,7 @@ else:
             credentials.loc[credentials['user_id']==user,'capital'] = capital_new
             
         df_pnl_eod.to_csv('df_pnl_eod.csv', index=False)
-        credentials.to_csv('login\\credentials.csv', index=False)
+        credentials.to_csv('login/credentials.csv', index=False)
 
 print('Done for the day')
 
