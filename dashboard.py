@@ -271,7 +271,7 @@ placeholder = st.empty()
 
 #! While loop #
 
-while datetime.datetime.now().time() < datetime.time(19,31):
+while datetime.datetime.now().time() < datetime.time(15,31):
 
     df_table,df_pnl,df_roi = positions_pnl_margin_roi(object)
 
