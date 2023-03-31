@@ -36,10 +36,12 @@ users = list(credentials['user_id'])
 
 df_pnl = pd.read_csv('https://github.com/lakshya-kaura/kailasa_dashboard/blob/master/df_pnl.csv',parse_dates=['date'])
 df_roi = pd.read_csv('df_roi.csv',parse_dates=['date'])
+print(df_pnl)
 
 try:
     if df_pnl['date'].iloc[0] != datetime.datetime.now().date():
         df_pnl.drop(df_pnl.index , inplace=True)
+        print(df_pnl)
         df_pnl.to_csv('https://github.com/lakshya-kaura/kailasa_dashboard/blob/master/df_pnl.csv',index=False)
 except:
     pass
