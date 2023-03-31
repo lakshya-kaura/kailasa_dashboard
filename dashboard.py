@@ -19,6 +19,7 @@ warnings.filterwarnings('ignore')
 ##! LOGIN ##
 
 credentials = pd.read_csv("login/credentials.csv")
+print(credentials)
 accounts = credentials['user_id'].to_list()
 for user_id in accounts:
     if user_id is np.nan:
