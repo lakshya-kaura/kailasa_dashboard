@@ -157,16 +157,14 @@ def positions_pnl_margin_roi(object):
 
             #! margin
 
-#             for i in range(0,10):
-#                 try:
-#                     #! updating df with margin
-#                     print('margin')
-#                     df_table.loc[df_table['object']==object,'margin'] = round(object.margins()['equity']['net'])
-#                     print('Hello')
-#                     break
-#                 except Exception as e:
-#                     print(f'Exception in margins for {user} ::: ',e)
-#                     print('Trying to find Margin Again')
+            for i in range(0,10):
+                try:
+                    #! updating df with margin
+                    df_table.loc[df_table['object']==object,'margin'] = round(object.margins()['equity']['net'])
+                    break
+                except Exception as e:
+                    print(f'Exception in margins for {user} ::: ',e)
+                    print('Trying to find Margin Again')
 
         except Exception as e:
             print('Exception ::: ', e)
